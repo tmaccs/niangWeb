@@ -5,6 +5,8 @@
 
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/homepage.css') }}">
+    <script src="{{ url_for('static',filename='js/echarts.js') }}"></script>
+
 {% endblock %}
 
 {% block wrapper %}
@@ -14,7 +16,7 @@
                 <article class="article">
                     <ul id="article_list">
                         {#        如果文章数量小于等于6则全部显示，否则只显示前六篇#}
-                        {% if questions | length <=20 %}
+                        {% if questions | length <=6 %}
                             {% for question in questions %}
                                 <li>
                                     <div class="article-header">
@@ -40,20 +42,20 @@
                                 <li>
                                     <div class="article-header">
                                         <h3 class="header-title"><a
-                                                href="{{ url_for('detail',question_id=question.id) }}">{{ question.title }}</a>
+                                                href="{{ url_for('detail',question_id=questions[i].id) }}">{{ questions[i].title }}</a>
                                         </h3>
                                         <div class="header-dateline"></div>
                                     </div>
                                     {#                    <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
-                                    <div class="question-info">
-                                        <span class="question-author">{{ question.author.username }}</span>
-                                        <span class="question-time">{{ question.create_time }}</span>
+                                    <div class="question-info header-dateline">
+                                        <span class="question-author">{{ questions[i].author.username }}</span>
+                                        <span class="question-time">{{ questions[i].create_time }}</span>
                                     </div>
                                     <div class="article-summary">
                                         {#                        jinja2不用|safe过滤器的话，会自动转义，在HTML中吧<p>空格等标签显示出来#}
-                                        <p class="question-content">{{ question.content|truncate(500,end='<br> ......') |safe }}</p>
+                                        <p class="question-content">{{ questions[i].content|truncate(500,end='<br> ......') |safe }}</p>
                                     </div>
-                                    <div class="article-footer"><a href="{{ url_for('detail',question_id=question.id) }}"> </a></div>
+                                    <div class="article-footer"><a href="{{ url_for('detail',question_id=questions[i].id) }}"> </a></div>
                                 </li>
                             {% endfor %}
                         {% endif %}
@@ -66,10 +68,48 @@
 
     </div>
 <div id="primary" class="aside main-aside">
+    <div class="search">
+        <form class="navbar-form navbar-left" action="{{ url_for('search') }}" method="get">
+            <div class="form-group">
+                <input name="q" type="text" class="form-control" placeholder="文章搜索">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+    </div>
+    <div class="myplayers">
+        <h3 style="border-bottom: 2px solid purple; margin-bottom: 15px;"><span style="color: purple;background: #fff;padding-bottom: 0.1em;font-family: Serif">MyPlayers</span></h3>
+    <div id="zimuge"></div>
+    <div id="points" style="width:400px;height:300px;"></div>
+        <script type='text/javascript'>
+        var myChart = echarts.init(document.getElementById('points'));
+        var option = {
+            title: {
+                text: '字母哥'
+            },
+            tooltip: {},
+            legend: {
+                data: ['得分']
+            },
+            xAxis: {
+                data: ['第1场', '第2场', '第3场', '第4场', '第5场', '第6场']
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'line',
+                data: [5,20,36, 10, 10, 20]
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+    </div>
 
 </div>
 
 {% endblock %}
+
+
 {#{% block main %}#}
 {#    <ul class="question-list">#}
 {##}

@@ -7,6 +7,7 @@ from decorator import login_restriction
 from werkzeug.security import check_password_hash
 from sqlalchemy import or_
 import time
+import babel
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -164,6 +165,8 @@ def context_processor():
         #     return{}
     #这个return一定要写，不然会报TypeError: 'NoneType' object is not iterable
     return {}
+
+
 if __name__ == '__main__':
     # from werkzeug.contrib.fixers import ProxyFix
     # app.wsgi_app = ProxyFix(app.wsgi_app)

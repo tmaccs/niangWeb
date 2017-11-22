@@ -50,15 +50,14 @@ ul{
     overflow: hidden;
     float: left;
 }
+
 .container{
     padding: 0 0 0 35px;
     width: auto;
 }
-#content{
 
-}
  article *, .article *,#tag_cloud {
-     font-family: "futura-pt", "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+     font-family: "futura-pt","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
     }
 
     /*article-header*/
@@ -67,12 +66,14 @@ ul{
     margin:.6em 0 1em;
     font-size: 1.5em;
 
+
+
 }
 .article .article-header .header-title {
       margin: .15em 0 .25em;
   }
 .article .article-header .header-category a,
-.article .article-header .header-dateline {
+.header-dateline {
     color: rgba(31,31,31,.5);font-family: "futura-pt";
   }
 
@@ -103,4 +104,23 @@ ul{
     content: " \279D";
     font: normal .9em sans-serif;
     color:rgba(31, 31, 31, .45);
+}
+
+/*右半部分样式*/
+#primary{
+    width: 29%;
+    min-width: 282px;
+    float: right;
+    margin: 0 2.5% 0 2.5%;
+    padding-left: 10px;
+}
+.search{
+     padding-top: 2em;
+    width: auto;
+    overflow: hidden;
+}
+.myplayers{
+    padding: 0 0 0 0;
+    width: auto;
+    display: block;
 }
