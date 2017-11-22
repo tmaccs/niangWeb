@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}
+    首页
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/homepage.css') }}">
+{% endblock %}
+
+{% block wrapper %}
+    <div id="main">
+        <div class="container">
+            <div id="content">
+                <article class="article">
+                    <ul id="article_list">
+                        {#        如果文章数量小于等于6则全部显示，否则只显示前六篇#}
+                        {% if questions | length <=20 %}
+                            {% for question in questions %}
+                                <li>
+                                    <div class="article-header">
+                                        <h3 class="header-title"><a
+                                                href="{{ url_for('detail',question_id=question.id) }}">{{ question.title }}</a>
+                                        </h3>
+                                        <div class="header-dateline"></div>
+                                    </div>
+                                    {#                    <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
+                                    <div class="question-info">
+                                        <span class="question-author">{{ question.author.username }}</span>
+                                        <span class="question-time">{{ question.create_time }}</span>
+                                    </div>
+                                    <div class="article-summary">
+                                        {#                        jinja2不用|safe过滤器的话，会自动转义，在HTML中吧<p>空格等标签显示出来#}
+                                        <p class="question-content">{{ question.content|truncate(500,end='<br> ......') |safe }}</p>
+                                    </div>
+                                    <div class="article-footer"><a href="{{ url_for('detail',question_id=question.id) }}"> </a></div>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in range(6) %}
+                                <li>
+                                    <div class="article-header">
+                                        <h3 class="header-title"><a
+                                                href="{{ url_for('detail',question_id=question.id) }}">{{ question.title }}</a>
+                                        </h3>
+                                        <div class="header-dateline"></div>
+                                    </div>
+                                    {#                    <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
+                                    <div class="question-info">
+                                        <span class="question-author">{{ question.author.username }}</span>
+                                        <span class="question-time">{{ question.create_time }}</span>
+                                    </div>
+                                    <div class="article-summary">
+                                        {#                        jinja2不用|safe过滤器的话，会自动转义，在HTML中吧<p>空格等标签显示出来#}
+                                        <p class="question-content">{{ question.content|truncate(500,end='<br> ......') |safe }}</p>
+                                    </div>
+                                    <div class="article-footer"><a href="{{ url_for('detail',question_id=question.id) }}"> </a></div>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+
+{#                    <div class="article-footer"></div>#}
+            </article>
+            </div>
+        </div>
+
+    </div>
+<div id="primary" class="aside main-aside">
+
+</div>
+
+{% endblock %}
+{#{% block main %}#}
+{#    <ul class="question-list">#}
+{##}
+{#        {% for question in questions %}#}
+{#        <li>#}
+{#            <div class="avatar-group">#}
+{#                <img src="{{ url_for('static',filename='images/webLogo.gif') }}" alt="" class="avatar">#}
+{#            </div>#}
+{#            <div class="question-group">#}
+{#                <p class="question-title"><a href="{{ url_for('detail',question_id=question.id) }}">{{ question.title }}</a></p>#}
+{#                <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
+{#                    jinja2不用|safe过滤器的话，会自动转义，在HTML中吧<p>空格等标签显示出来#}
+{#                    <p class="question-content">{{ question.content|safe }}</p>#}
+{#                </div>#}
+{##}
+{#                <div class="question-info">#}
+{#                    <span class="question-author">{{ question.author.username }}</span>#}
+{#                    <span class="question-time">{{ question.create_time }}</span>#}
+{#                </div>#}
+{#            </div>#}
+{#        </li>#}
+{#        {% endfor %}#}
+{##}
+{#    </ul>#}
+{#{% endblock %}#}

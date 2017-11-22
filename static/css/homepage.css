@@ -1,0 +1,106 @@
+
+.logo{
+    width:100px;
+    height: 30px;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+.question-list li{
+    border-bottom: 1px solid;
+    overflow: hidden;
+    padding: 15px 0px;
+}
+
+.avatar-group{
+    width: 38px;
+    height: 100%;
+    float: left;
+}
+.avatar-group .avatar{
+    width: 38px;
+    height: 38px;
+    border-radius:50%;
+}
+.question-group{
+    float: left;
+    width: 860px;
+    margin-left: 10px;
+}
+.question-group .question-title a{
+    color: #259;
+    /*文字的重量*/
+    font-weight: 900;
+}
+
+.question-info{
+    text-align: center;
+}
+.question-info span{
+    margin-right: 15px;
+}
+.question-group .question-content{
+    position: relative;
+}
+
+#main{
+    width: 66%;
+    margin: 0 auto 0 0;
+    overflow: hidden;
+    float: left;
+}
+.container{
+    padding: 0 0 0 35px;
+    width: auto;
+}
+#content{
+
+}
+ article *, .article *,#tag_cloud {
+     font-family: "futura-pt", "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+
+    /*article-header*/
+.article .article-header {
+    text-align:center;
+    margin:.6em 0 1em;
+    font-size: 1.5em;
+
+}
+.article .article-header .header-title {
+      margin: .15em 0 .25em;
+  }
+.article .article-header .header-category a,
+.article .article-header .header-dateline {
+    color: rgba(31,31,31,.5);font-family: "futura-pt";
+  }
+
+
+ /*article-body*/
+.article  .article-body,
+.article  .article-summary{
+    font: 300 1.1em/1.8 "futura-pt", "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+.article  .article-body img {
+    display:block;
+}
+
+/*article-footer*/
+.article-footer  {
+  margin: 0.1em 0 3em;
+}
+.article-footer a {
+    color: rgba(31,31,31, .5);
+    text-decoration: none;
+    font-size: 1.1em;
+    line-height: 1.8em;
+  }
+.article-footer a::before {
+    content: "Read More";
+}
+.article-footer a::after {
+    content: " \279D";
+    font: normal .9em sans-serif;
+    color:rgba(31, 31, 31, .45);
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+        {% block title %}{% endblock %}-格物致知
+    </title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}">
+    {% block head %}{% endblock%}
+</head>
+<body>
+<div id="header">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    YYwer
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    {#                需要设置选中时状态#}
+                    <li class="1active"><a href="/">WhatFor <span class="sr-only">(current)</span></a></li>
+                    <li><a href="{{ url_for('question') }}">Blog</a></li>
+                    <li><a href="{{ url_for('buslines') }}">MyPlayers</a></li>
+                    <li><a href="{{ url_for('try_proj') }}">AboutMe</a></li>
+                    {#            </ul>#}
+                    {#            <form class="navbar-form navbar-left" action="{{ url_for('search') }}" method="get">#}
+                    {#                <div class="form-group">#}
+                    {#                    <input name="q" type="text" class="form-control" placeholder="">#}
+                    {#                </div>#}
+                    {#                <button type="submit" class="btn btn-default">Search</button>#}
+                    {#            </form>#}
+                    {#            <ul class="nav navbar-nav navbar-right">#}
+                    {#                直接写login就行了？#}
+                    {% if user %}
+                        {#                   错！ <li><a href="#">user.username</a></li>#}
+                        <li><a href="#">{{ user.username }}</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        {#                    <li><a href="{{ url_for('register') }}">Logon</a></li>#}
+                    {% endif %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>
+
+<div id="wrapper">
+    {% block wrapper %}{% endblock %}
+    {#<div class="main">#}
+    {#    {% block main %}#}
+    {#    {% endblock %}#}
+    {#    {% block content %}#}
+    {#        <div class="container">#}
+    {#            {% for message in get_flashed_messages() %}#}
+    {#                <div class="alert alert-warning">#}
+    {#                    <button type="button" class="close" data-dismiss="alert">&times;</button>#}
+    {#                    {{ message }}#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {#            {% block page_content %}{% endblock %}#}
+    {#        </div>#}
+    {#    {% endblock %}#}
+
+</div>
+<footer>Copyright @ 杨恒宇</footer>
+{#</div>#}
+</body>
+
+
+</html>
