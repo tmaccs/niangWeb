@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    YYwer
+                    YY2er
                 </a>
             </div>
 
@@ -34,10 +34,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     {#                需要设置选中时状态#}
-                    <li class="1active"><a href="/">WhatFor <span class="sr-only">(current)</span></a></li>
-                    <li><a href="{{ url_for('question') }}">Blog</a></li>
+                    <li class="1active"><a href="{{ url_for('blog') }}"> Blog<span class="sr-only">(current)</span></a></li>
+                    <li><a href="{{ url_for('question') }}">LookingForX</a></li>
                     <li><a href="{{ url_for('buslines') }}">MyPlayers</a></li>
-                    <li><a href="{{ url_for('try_proj') }}">AboutMe</a></li>
+                    <li><a href="{{ url_for('blog') }}">AboutMe</a></li>
                     {#            </ul>#}
                     {#            <form class="navbar-form navbar-left" action="{{ url_for('search') }}" method="get">#}
                     {#                <div class="form-group">#}

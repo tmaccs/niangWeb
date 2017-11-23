@@ -124,3 +124,6 @@ ul{
     width: auto;
     display: block;
 }
+#points{
+    margin-top: 4em;
+}

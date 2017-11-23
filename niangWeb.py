@@ -133,10 +133,22 @@ def addAnswer():
 def buslines():
     return render_template('buslines.html')
 
-@app.route('/try_proj/')
-def try_proj():
+@app.route('/blog')
+def blog():
+    blog_by_time = {
+        'questions': Question.query.order_by('-create_time').all()
+    }
+    blog_by_hot = {
+        'questioins1': Question.query.order_by('create_time').all()
+    }
 
-    return render_template('try_proj.html')
+    sort = request.args.get('sort')
+    if sort == 'time':
+        return render_template('timeblog.html',**blog_by_time)
+    elif sort == 'hot':
+        return render_template('hotblog.html',**blog_by_hot)
+
+    return render_template('blog.html')
 
 @app.route('/search/')
 def search():
