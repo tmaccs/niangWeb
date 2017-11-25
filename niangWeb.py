@@ -139,7 +139,10 @@ def blog():
         'questions': Question.query.order_by('-create_time').all()
     }
     blog_by_hot = {
-        'questioins1': Question.query.order_by('create_time').all()
+        'questions1': Question.query.order_by('create_time').all()
+    }
+    blog_page = {
+        'questions1': Question.query.order_by('create_time').all()
     }
 
     sort = request.args.get('sort')
@@ -148,7 +151,7 @@ def blog():
     elif sort == 'hot':
         return render_template('hotblog.html',**blog_by_hot)
 
-    return render_template('blog.html')
+    return render_template('blog.html',**blog_page)
 
 @app.route('/search/')
 def search():

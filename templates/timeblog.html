@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-最新博客
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Blog
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block wrapper %}
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="{{ url_for('blog',sort='hot') }}">最热</a>
+        <div class="artivle_list">
+            <ul>
+                {% for question in questions %}
+                    <li>
+                        <div class="article-header">
+                            <h3 class="header-title"><a
+                                    href="{{ url_for('detail',question_id=question.id) }}">{{ question.title }}</a>
+                            </h3>
+                            <div class="header-dateline"></div>
+                        </div>
+                        {#                    <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
+                        <div class="question-info">
+                            <span class="question-author">{{ question.author.username }}</span>
+                            <span class="question-time">{{ question.create_time }}</span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </li>
+  <li role="presentation" class="active"><a href="{{ url_for('blog',sort='time') }}">最新</a></li>
+</ul>
+
+{% endblock %}

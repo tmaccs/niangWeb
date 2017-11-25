@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-    First
+    首页
 {% endblock %}
 
 {% block head %}
@@ -57,7 +57,7 @@
                                     <p class="question-content">{{ questions[i].content|truncate(500,end='<br> ......') |safe }}</p>
                                 </div>
                                 <div class="article-footer"><a
-                                        href="{{ url_for('detail',question_id=questions[i].id) }}"> </a></div>
+                                        href="{{ url_for('detail',question_id=questions[i].id) }}"></a></div>
                             </li>
                         {% endfor %}
                     {% endif %}
