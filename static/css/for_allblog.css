@@ -1,0 +1,55 @@
+ul{
+    list-style: none;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #000000;
+    background-color: #ffffff;
+    border-top: inherit;
+    border-right: inherit;
+    border-left: inherit;
+    border-bottom-color: red;
+    padding-bottom: 11px;
+}
+.nav-tabs li> a{
+    font-size: 18px;
+    font-family:"futura-pt", "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: transparent;
+    color: #000000;
+    padding-left: 2em;
+    padding-right: 2em;
+    border: none;
+}
+
+/*取消鼠标放到标签时的灰色背景色，和选框*/
+.nav-tabs li > a:focus,
+.nav-tabs li > a:hover{
+    color:#777 ;
+    background-color: #ffffff;
+
+}
+
+.tab_header{
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.blog_list{
+    position: relative;
+    width: 75%;
+    float: right;
+    box-sizing: border-box;
+}
+.like{
+    position: relative;
+    width: 25%;
+    float: left;
+    text-align: center;
+    padding-top: 5em;
+    border-right: 1px dashed #d1d1d1;
+}
+.poety h3{
+    margin-bottom: 1em;
+}

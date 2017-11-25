@@ -4,13 +4,31 @@ Blog
 {% endblock %}
 
 {% block head %}
-
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/for_allblog.css') }}">
 {% endblock %}
 
 {% block wrapper %}
-<ul class="nav nav-tabs">
-    <li role="presentation"><a href="{{ url_for('blog',sort='hot') }}">最热</a>
-        <div class="artivle_list">
+    <div class="container">
+        <div class="lex-item-3 flex-item-md-3 like">
+            <div class="everyday">
+
+            </div>
+            <div class="poety">
+                <h3>南园</h3>
+                <p>男儿何不带吴钩，收取关山五十州</p>
+                <p>请君暂上凌烟阁，若个书生万户侯</p>
+            </div>
+        </div>
+        <div class="flex-item-9 flex-item-md-9 blog_list">
+        <div class="tab_header">
+            <ul class="nav nav-tabs">
+                <li role="presentation"><a href="{{ url_for('blog',sort='hot') }}">最热</a></li>
+                <li role="presentation" class="active"><a href="{{ url_for('blog',sort='time') }}">最新</a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="title_list">
             <ul>
                 {% for question in questions %}
                     <li>
@@ -29,8 +47,6 @@ Blog
                 {% endfor %}
             </ul>
         </div>
-    </li>
-  <li role="presentation" class="active"><a href="{{ url_for('blog',sort='time') }}">最新</a></li>
-</ul>
-
+    </div>
+    </div>
 {% endblock %}
