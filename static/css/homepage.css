@@ -35,7 +35,10 @@ ul{
 }
 
 .question-info{
-    text-align: center;
+    text-align: left;
+}
+.header-title{
+    text-align: left;
 }
 .question-info span{
     margin-right: 15px;
@@ -63,7 +66,7 @@ ul{
     /*article-header*/
 .article .article-header {
     text-align:center;
-    margin:.6em 0 1em;
+    margin:.6em 0 0em;
     font-size: 1.5em;
 
 
@@ -116,7 +119,7 @@ ul{
 }
 .search{
      padding-top: 2em;
-    width: 20em;
+    width: 19em;
     overflow: hidden;
 }
 .myplayers{
@@ -126,4 +129,7 @@ ul{
 }
 #points{
     margin-top: 4em;
+}
+.article-summary{
+    margin-top: 1.5em;
 }

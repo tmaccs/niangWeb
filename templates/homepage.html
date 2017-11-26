@@ -38,6 +38,7 @@
                                 <div class="article-footer"><a
                                         href="{{ url_for('detail',question_id=question.id) }}"> </a></div>
                             </li>
+                            <hr>
                         {% endfor %}
                     {% else %}
                         {% for i in range(6) %}
@@ -60,6 +61,7 @@
                                 <div class="article-footer"><a
                                         href="{{ url_for('detail',question_id=questions[i].id) }}"></a></div>
                             </li>
+                            <hr>
                         {% endfor %}
                     {% endif %}
                 </ul>

@@ -7,7 +7,7 @@ from decorator import login_restriction
 from werkzeug.security import check_password_hash
 from sqlalchemy import or_
 import time
-import babel
+
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -111,7 +111,10 @@ def question():
 
 @app.route('/detail/<question_id>/')
 def detail(question_id):
+        # post =Question.query.get(question_id)
+        # post.increace_viewsnum()
         question_detail=Question.query.filter(Question.id==question_id).first()
+        question_detail.increace_viewsnum()
         return render_template('detail.html',question_d=question_detail)
 
 @app.route('/addAnswer/',methods=['POST'])
