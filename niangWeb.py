@@ -92,8 +92,12 @@ def question():
     if request.method =='GET':
         return render_template('question.html')
     else:
-        title = request.form.get('title')
         content = request.form.get('content')
+        title = request.form.get('title')
+        if title == None:
+            flash("标题不能为空", 'danger')
+            return redirect(url_for('question'),content)
+
         # question = Question(title=title,content=content,author_name=user.username)
         question = Question(title=title, content=content)
         # 因为在login时，在session中保存了key为user_id的键值对，session['user_id']=user.id，所以：
