@@ -94,9 +94,9 @@ def question():
     else:
         content = request.form.get('content')
         title = request.form.get('title')
-        if title == None:
-            flash("标题不能为空", 'danger')
-            return redirect(url_for('question'),content)
+        # if title == None:
+        #     flash("标题不能为空", 'danger')
+        #     return redirect(url_for('question'),content)
 
         # question = Question(title=title,content=content,author_name=user.username)
         question = Question(title=title, content=content)
