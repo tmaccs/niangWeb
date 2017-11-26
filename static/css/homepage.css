@@ -109,7 +109,7 @@ ul{
 /*右半部分样式*/
 #primary{
     width: 29%;
-    min-width: 282px;
+    /*min-width: 282px;*/
     float: right;
     margin: 0 2.5% 0 2.5%;
     padding-left: 10px;
