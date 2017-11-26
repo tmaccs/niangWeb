@@ -51,10 +51,10 @@ ul{
     float: left;
 }
 
-.container{
+/*.container{
     padding: 0 0 0 35px;
     width: auto;
-}
+}*/
 
  article *, .article *,#tag_cloud {
      font-family: "futura-pt","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;

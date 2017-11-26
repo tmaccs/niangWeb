@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}{{ question_d.title }}{% endblock %}
 
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/detail.css') }}">
 {% endblock %}
 
-{% block main %}
+{% block wrapper %}
+    <div class="container">
     <h3 class="loginTitle">{{ question_d.title }}</h3>
     <p class="question_info">
         <span class="question_author">作者：{{ question_d.author.username }}</span>
@@ -16,11 +17,11 @@
     <hr>
     </p>
         {#    这其实是一个过滤器#}
-    <h3>补充：（{{ question_d.answers | length }}）</h3>
+    <h3>评论:（{{ question_d.answers | length }}）</h3>
     <form action="{{ url_for('addAnswer') }}" method="post">
         <div class="answer_info">
             <div class="form-group">
-                <input type="text" class="form-control" name="answer_content" placeholder="要补充啥子">
+                <input type="text" class="form-control" name="answer_content" placeholder="给个评价吧">
                 <input type="hidden" name="question_id" value="{{ question_d.id }}">
             </div>
             <div class="form-group">
@@ -46,4 +47,5 @@
             </li>
         {% endfor %}
     </ul>
+    </div>
 {% endblock %}
