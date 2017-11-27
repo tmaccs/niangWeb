@@ -49,7 +49,7 @@ ul{
 
 #main{
     width: 55%;
-    margin: 0 auto 0 2em;
+    margin: 0 auto 0 0.5em;
     overflow: hidden;
     float: left;
 }
@@ -121,6 +121,10 @@ ul{
      padding-top: 2em;
     width: 19em;
     overflow: hidden;
+}
+.navbar-form .form-control{
+    width: 10em;
+    margin-right: 2em;
 }
 .myplayers{
     padding: 0 0 0 0;
