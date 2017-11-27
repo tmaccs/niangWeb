@@ -5,7 +5,7 @@ from models import Users,Question,Answer
 from exts import db
 from decorator import login_restriction
 from werkzeug.security import check_password_hash
-from sqlalchemy import or_
+from sqlalchemy import or_,desc
 import time
 
 
@@ -18,7 +18,7 @@ db.init_app(app)
 def index():
     context={
         #'questions':Question.query.order_by('-create_time').all()
-        'questions':Question.query.order_by('-create_time').all()
+        'questions':Question.query.order_by(desc('create_time')).all()
     }
 
     return render_template('homepage.html', **context)

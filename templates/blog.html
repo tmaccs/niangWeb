@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{%import 'pagenum.html' as macros%}
+{% import 'pagenum.html' as macros %}
 {% block title %}
-Blog
+    Blog
 {% endblock %}
 
 {% block head %}
@@ -9,58 +9,61 @@ Blog
 {% endblock %}
 
 {% block wrapper %}
-<div class="container">
-    <div class="flex-item-3 flex-item-md-3 like">
-        <a href="{{ url_for('question') }} " class="btn btn-info" style="width: 5em;background-color: lightpink; margin-bottom: 2em">写博客</a>
-        <div class="everyday">
+    <div class="container">
+        <div class="flex-item-3 flex-item-md-3 like">
+            <a href="{{ url_for('question') }} " class="btn btn-info"
+               style="width: 5em;background-color: lightpink; margin-bottom: 2em">写博客</a>
+            <div class="everyday">
 
-        </div>
-        <div class="poety">
-        <h3>南园</h3>
-        <p>男儿何不带吴钩，收取关山五十州</p>
-        <p>请君暂上凌烟阁，若个书生万户侯</p>
             </div>
-        <div class="releaseblog">
+            <div class="poety">
+                <h3>南园</h3>
+                <p>男儿何不带吴钩</p>
+                <p>收取关山五十州</p>
+                <p>请君暂上凌烟阁</p>
+                <p>若个书生万户侯</p>
+            </div>
+            <div class="releaseblog">
+
+            </div>
+        </div>
+
+        <div class="flex-item-9 flex-item-md-9 blog_list">
+            <div class="tab_header">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="{{ url_for('blog',sort='hot') }}">最热</a></li>
+                    <li role="presentation" class="active"><a href="{{ url_for('blog',sort='time') }}">最新</a></li>
+                </ul>
+            </div>
+            <div class="title_list">
+                <ul>
+                    {% for question in questions %}
+                        <li>
+                            <div class="article-header">
+                                <h3 class="header-title"><a
+                                        href="{{ url_for('detail',question_id=question.id) }}">{{ question.title }}</a>
+                                </h3>
+                                <div class="header-dateline"></div>
+                            </div>
+                            {#                    <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
+                            <div class="question-info">
+                                <span class="question-author">阅读 {{ question.viewsnum }} ·</span>
+                                <span class="question-time">评论 {{ question.answers|length }}</span>
+                            </div>
+                            <div class="time">
+                                {{ question.create_time.strftime("%a, %d %b %Y %H:%M") }} 发布
+                            </div>
+                            <hr style="margin-right: 3em">
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="page">
+                {% if pagination %}
+                    {{ macros.pagination_widget(pagination,'.blog') }}
+                {% endif %}
+            </div>
+        </div>
 
     </div>
-    </div>
-
-    <div class="flex-item-9 flex-item-md-9 blog_list">
-        <div class="tab_header">
-            <ul class="nav nav-tabs">
-                <li role="presentation"><a href="{{ url_for('blog',sort='hot') }}">最热</a></li>
-                <li role="presentation" class="active"><a href="{{ url_for('blog',sort='time') }}">最新</a></li>
-            </ul>
-        </div>
-        <div class="title_list">
-            <ul>
-                {% for question in questions %}
-                    <li>
-                        <div class="article-header">
-                            <h3 class="header-title"><a
-                                    href="{{ url_for('detail',question_id=question.id) }}">{{ question.title }}</a>
-                            </h3>
-                            <div class="header-dateline"></div>
-                        </div>
-                        {#                    <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
-                        <div class="question-info">
-                            <span class="question-author">阅读 {{ question.viewsnum }} ·</span>
-                            <span class="question-time">评论 {{ question.answers|length }}</span>
-                        </div>
-                        <div class="time">
-                            {{ question.create_time.strftime("%a, %d %b %Y %H:%M") }} 发布
-                        </div>
-                        <hr style="margin-right: 3em">
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="page">
-            {% if pagination %}
-                {{ macros.pagination_widget(pagination,'.blog') }}
-            {% endif %}
-        </div>
-    </div>
-
-</div>
 {% endblock %}
