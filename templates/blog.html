@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{%import 'pagenum.html' as macros%}
 {% block title %}
 Blog
 {% endblock %}
@@ -27,13 +28,13 @@ Blog
     <div class="flex-item-9 flex-item-md-9 blog_list">
         <div class="tab_header">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="{{ url_for('blog',sort='hot') }}">最热</a></li>
-                <li role="presentation"><a href="{{ url_for('blog',sort='time') }}">最新</a></li>
+                <li role="presentation"><a href="{{ url_for('blog',sort='hot') }}">最热</a></li>
+                <li role="presentation" class="active"><a href="{{ url_for('blog',sort='time') }}">最新</a></li>
             </ul>
         </div>
         <div class="title_list">
             <ul>
-                {% for question in questions1 %}
+                {% for question in questions %}
                     <li>
                         <div class="article-header">
                             <h3 class="header-title"><a
@@ -47,13 +48,19 @@ Blog
                             <span class="question-time">评论 {{ question.answers|length }}</span>
                         </div>
                         <div class="time">
-                            {{ question.create_time }} 发布
+                            {{ question.create_time.strftime("%a, %d %b %Y %H:%M") }} 发布
                         </div>
                         <hr style="margin-right: 3em">
                     </li>
                 {% endfor %}
             </ul>
         </div>
+        <div class="page">
+            {% if pagination %}
+                {{ macros.pagination_widget(pagination,'.blog') }}
+            {% endif %}
+        </div>
     </div>
+
 </div>
 {% endblock %}

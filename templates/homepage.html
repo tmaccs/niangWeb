@@ -29,7 +29,7 @@
                                 {#                    <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
                                 <div class="question-info">
                                     <span class="question-author">{{ question.author.username }}</span>
-                                    <span class="question-time">{{ question.create_time }}</span>
+                                    <span class="question-time">{{ question.create_time.strftime("%a, %d %b %Y %H:%M") }}</span>
                                 </div>
                                 <div class="article-summary">
                                     {#                        jinja2不用|safe过滤器的话，会自动转义，在HTML中吧<p>空格等标签显示出来#}
@@ -52,7 +52,7 @@
                                 {#                    <div class="q-content" style="height:35px;overflow: hidden;text-overflow: ellipsis;">#}
                                 <div class="question-info header-dateline">
                                     <span class="question-author">{{ questions[i].author.username }}</span>
-                                    <span class="question-time">{{ questions[i].create_time }}</span>
+                                    <span class="question-time">{{ questions[i].create_time.strftime("%a, %d %b %Y %H:%M:%S") }}</span>
                                 </div>
                                 <div class="article-summary">
                                     {#                        jinja2不用|safe过滤器的话，会自动转义，在HTML中吧<p>空格等标签显示出来#}

@@ -58,3 +58,7 @@ ul{
     margin-top: 0.8em;
     margin-bottom: 1.5em;
 }
+.page{
+    padding-right: 3em;
+    float: right;
+}

@@ -142,23 +142,29 @@ def buslines():
 
 @app.route('/blog')
 def blog():
-    blog_by_time = {
-        'questions': Question.query.order_by('-create_time').all()
-    }
-    blog_by_hot = {
-        'questions1': Question.query.order_by('create_time').all()
-    }
-    blog_page = {
-        'questions1': Question.query.order_by('create_time').all()
-    }
+    page = request.args.get('page', 1, type=int)
+    pagination = Question.query.order_by(Question.create_time.desc()).paginate(page, per_page=6, error_out=False)
+    pagination_hot = Question.query.order_by(Question.viewsnum.desc()).paginate(page, per_page=6, error_out=False)
+    questions = pagination.items
+    questions_hot = pagination_hot.items
 
+    # blog_by_time = {
+    #     'questions': Question.query.order_by('-create_time').all()
+    # }
+    # blog_by_hot = {
+    #     'questions1': Question.query.order_by('-viewsnum').all()
+    # }
+    # blog_page = {
+    #     'questions': Question.query.order_by('-create_time').all()
+    # }
     sort = request.args.get('sort')
     if sort == 'time':
-        return render_template('timeblog.html',**blog_by_time)
+        # return render_template('timeblog.html',**blog_by_time)
+        return render_template('timeblog.html',questions=questions, pagination=pagination)
     elif sort == 'hot':
-        return render_template('hotblog.html',**blog_by_hot)
-
-    return render_template('blog.html',**blog_page)
+        return render_template('hotblog.html',questions_hot=questions_hot,pagination_hot=pagination_hot)
+    return render_template('blog.html', questions=questions, pagination=pagination)
+    # return render_template('blog.html',**blog_page)
 
 @app.route('/search/')
 def search():

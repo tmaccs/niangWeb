@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{%import 'pagenum.html' as macros%}
 {% block title %}
 Blog
 {% endblock %}
@@ -29,7 +30,7 @@ Blog
             </div>
             <div class="title_list">
                 <ul>
-                    {% for question in questions1 %}
+                    {% for question in questions_hot %}
                         <li>
                             <div class="article-header">
                                 <h3 class="header-title"><a
@@ -43,13 +44,18 @@ Blog
                                 <span class="question-time">评论  {{ question.answers|length }}</span>
                             </div>
                             <div class="time">
-                            2017/11/24 发布
+                            {{ question.create_time.strftime("%a, %d %b %Y %H:%M") }} 发布
                             </div>
                         <hr style="margin-right: 3em">
                         </li>
                     {% endfor %}
                 </ul>
             </div>
+        <div class="page">
+            {% if pagination_hot %}
+                {{ macros.pagination_widget(pagination_hot,'.blog',sort='hot') }}
+            {% endif %}
+        </div>
         </div>
     </div>
 {% endblock %}

@@ -48,8 +48,8 @@ ul{
 }
 
 #main{
-    width: 66%;
-    margin: 0 auto 0 0;
+    width: 55%;
+    margin: 0 auto 0 2em;
     overflow: hidden;
     float: left;
 }
@@ -111,7 +111,7 @@ ul{
 
 /*右半部分样式*/
 #primary{
-    width: 29%;
+    width: 32%;
     /*min-width: 282px;*/
     float: right;
     margin: 0 2.5% 0 2.5%;
