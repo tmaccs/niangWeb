@@ -18,7 +18,9 @@
     overflow: hidden;
     padding: 20px;
     padding-bottom: 39px;
+    min-height:500px;
 }
+
 #wrapper1{
         max-width: 1300px;
     width: 100%;
@@ -40,7 +42,7 @@ footer{
     color: #666;
 }
 
- a { color: #1f1f1f;font-family: "futura-pt", "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;}
+a{ color: #1f1f1f;font-family: "futura-pt", "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;}
  a:focus, a:hover{text-decoration: none;color:inherit;}
 
  .navbar-default {background-color:#ffffff;border:none;}
@@ -51,6 +53,9 @@ footer{
      background-color: #fff;
      color: #000;
  }
+body, button, input, select, textarea {
+    font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+}
 
  .navbar-default a {
      font-size: 14px;

@@ -1,4 +1,12 @@
 {% macro pagination_widget(pagination, endpoint, fragment='') %}
+    <head>
+        <style>
+            .pagination > .active > a {
+                background-color: lightpink;
+                border-color:lightpink;
+            }
+        </style>
+    </head>
 <div class="pagination">
     <ul class="pagination">
     <li{% if not pagination.has_prev %} class="disabled"{% endif %}>

@@ -172,6 +172,10 @@ def search():
     questions = Question.query.filter(or_(Question.title.contains('q'),Question.content.contains('q')))
     return render_template('search.html',q=q,questions=questions)
 
+@app.route('/about/')
+def about():
+    return render_template('about.html')
+
 @app.before_request
 def my_before_request():
     user_id = session.get('user_id')

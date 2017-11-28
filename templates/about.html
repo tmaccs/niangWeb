@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/about.css') }}">
+{% endblock %}
+{% block wrapper %}
+    <div class="container">
+        <div class="info">
+            <p style="color: deeppink">This WebSite is All By Myself</p>
+            <p style="color: hotpink">The MyPlayers Will Crawl Data Of My Favourite Players</p>
+            <P style="color: lightpink">Der Rest braucht deine eigene Erkundung</P>
+            <p>Ай-ай-ай-ай-ай, что сейчас произошло! </p>
+        </div>
+        <div class="contact">
+            <h4 style="padding-right: 0.8em">Contact Me:</h4>
+            <div class="logo" >
+                <a href="https://github.com/tmaccs"><img src="{{ url_for('static',filename='images/github.png') }}" alt="github"> </a>
+                <a href="https://weibo.com/tmaccs"> <img src="{{ url_for('static',filename='images/weibo.png') }}" alt="weibo"></a>
+                <a href="#"> <img src="{{ url_for('static',filename='images/mail.png') }}" alt="mail"></a>
+            </div>
+            {#            <div class="qq" style="display: flex;">#}
+            {#                <img src="{{ url_for('static',filename='images/QQ.png') }}" alt="QQ"> <p>236668777</p>#}
+            {#            </div>#}
+            {#            <div class="wechat" style="display: flex;">#}
+            {#                <img src="{{ url_for('static',filename='images/wechat.png') }}" alt="wechat"> <p>yhytmaccs</p>#}
+            {#            </div>#}
+        </div>
+    </div>
+{% endblock %}
