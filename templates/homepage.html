@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="article-summary">
                                     {#                        jinja2不用|safe过滤器的话，会自动转义，在HTML中吧<p>空格等标签显示出来#}
-                                    <p class="question-content">{{ question.content|truncate(500,end='<br> ......') |safe }}</p>
+                                    <p class="question-content">{{ question.content|truncate(399,end='<br> ......') |safe }}</p>
                                 </div>
                                 <div class="article-footer"><a
                                         href="{{ url_for('detail',question_id=question.id) }}"> </a></div>

@@ -9,13 +9,15 @@
 {#        判断标题是否为空，为空则弹出警告并且移除按钮上的焦点#}
         function check_title() {
             var btn = document.getElementById('release_btn')
-            btn.onfocus = function () {
+{#            btn.onfocus = function () {#}
                 if (document.getElementById('blogtitle').value == "") {
-                    btn.blur()
+
                     alert('必须有标题!')
+                    return false
+                    btn.blur()
 
             }
-            }
+{#            }#}
         }
     </script>
 {% endblock %}
@@ -34,8 +36,8 @@
             </div>
             <div class="form-group">
 
-                <button class="btn btn-info" style="background-color: lightpink" id="release_btn">立即发布</button>
-                <script>check_title()</script>
+                <button class="btn btn-info" style="background-color: lightpink" id="release_btn" onclick="return check_title()">立即发布</button>
+
             </div>
         </div>
     </form>
